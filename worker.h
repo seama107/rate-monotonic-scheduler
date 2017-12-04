@@ -36,8 +36,7 @@ public:
   void add_job();
   void set_exit();
 
-  pthread_mutex_t mutex;
-  bool ready;
+  pthread_mutex_t run_lock;
 
   int** doWork(int n);
   void delete_mat(int** mat);

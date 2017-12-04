@@ -7,7 +7,7 @@ void *worker_thread(void *arg) {
   Worker* worker = (Worker*) arg;
 
   //Wait for lock
-  pthread_mutex_lock(& (worker->mutex) );
+  pthread_mutex_lock(& (worker->run_lock) );
   while ( !(worker->thread_exit)) {
 
     while (worker->jobs_remaining) {
@@ -24,7 +24,7 @@ void *worker_thread(void *arg) {
   }
 
   //Return lock
-  pthread_mutex_unlock(& (worker->mutex) );
+  pthread_mutex_unlock(& (worker->run_lock) );
 
   pthread_exit(NULL);
 }
@@ -33,15 +33,14 @@ Worker::Worker(int i) {
   id = i;
   jobs_remaining = 0;
   jobs_completed = 0;
-  ready = false;
   busy = false;
   thread_exit = false;
   work_per_job = jobRate[id];
-  pthread_mutex_init(&mutex, NULL);
+  pthread_mutex_init(&run_lock, NULL);
 }
 
 Worker::~Worker() {
-  pthread_mutex_destroy(&mutex);
+  pthread_mutex_destroy(&run_lock);
 }
 
 bool Worker::is_busy() {

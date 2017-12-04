@@ -28,7 +28,7 @@ void set_pthread_attr_affinity(pthread_attr_t* tattr_ptr, int cpuid) {
   CPU_ZERO(&cpuset);
   CPU_SET(cpuid, &cpuset);
   pthread_attr_setaffinity_np(tattr_ptr, sizeof(cpu_set_t), &cpuset);
-  cout << "Affinity set to " <<  cpuid << endl;
+  cout << "Affinity set to CPU " <<  cpuid << endl;
 }
 #else
 void set_pthread_attr_affinity(pthread_attr_t* tattr_ptr, int cpuid) { return;}
@@ -43,8 +43,9 @@ void *schedule(void *arg) {
 
   for(int i = 0; i < N_JOBS; ++i) {
     //Initializing data and worker threads
+    cout << "Creating worker " << i << endl;
     workers[i] = Worker(i);
-    pthread_mutex_lock( &(workers[i].mutex));
+    pthread_mutex_lock( &(workers[i].run_lock));
 
     //Setting priority
     pthread_attr_t tattr;
@@ -65,21 +66,33 @@ void *schedule(void *arg) {
     }
   }
 
+
   for(int period = 0; period < N_PERIODS; ++period) {
     for(int t = 0; t < MAJOR_PERIOD; ++t) {
     cout << "Scheduling for t = " << period*MAJOR_PERIOD + t << endl;
 
       for(int i = 0; i < N_JOBS; ++i) {
         if(t % jobRate[i] == 0){
-          // cout << "Job " << i << " scheduled." << endl;
-          // cout << (workers[i].is_busy() ? "Busy" : "Idle") << endl;
-          // cout << "Jobs completed: " << workers[i].get_completed_jobs() << endl;
-          // cout << "Jobs remaining: "<< workers[i].get_jobs_remaining() << endl;
+          if(workers[i].is_busy()) {
+            missed_deadlines[i]++;
+          }
+
+          cout << "Job " << i << " scheduled." << endl;
+          if(workers[i].is_busy()) {
+            missed_deadlines[i]++;
+            cout << "Worker " << i << " still busy: Overrun condition" << endl;
+            cout << "Worker " << i << " has " << workers[i].get_jobs_remaining() << " jobs remaining." << endl;
+            cout << "Worker " << i << " deadlines missed: " << missed_deadlines[i] << endl;
+
+          }
+          cout << "Jobs completed: " << workers[i].get_completed_jobs() << endl;
+          cout << "Jobs remaining: "<< workers[i].get_jobs_remaining() << endl;
 
           workers[i].add_job();
-          workers[i].ready = true;
-          pthread_mutex_unlock( &(workers[i].mutex));
-
+          if(period == 0 && t == 0) {
+            //First time, kick off the threads in their wait()
+            pthread_mutex_unlock( &(workers[i].run_lock));
+          }
 
         }
       }
@@ -93,7 +106,7 @@ void *schedule(void *arg) {
 
   //wait() on threads to finish
   for(int i = 0; i < N_JOBS; ++i) {
-    pthread_mutex_lock( &(workers[i].mutex));
+    pthread_mutex_lock( &(workers[i].run_lock));
   }
 
   //Printing results
