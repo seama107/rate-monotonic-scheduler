@@ -28,6 +28,7 @@ void set_pthread_attr_affinity(pthread_attr_t* tattr_ptr, int cpuid) {
   CPU_ZERO(&cpuset);
   CPU_SET(cpuid, &cpuset);
   pthread_attr_setaffinity_np(tattr_ptr, sizeof(cpu_set_t), &cpuset);
+  cout << "Affinity set to " <<  cpuid << endl;
 }
 #else
 void set_pthread_attr_affinity(pthread_attr_t* tattr_ptr, int cpuid) { return;}
