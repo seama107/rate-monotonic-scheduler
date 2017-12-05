@@ -65,6 +65,7 @@ void *schedule(void *arg) {
     }
   }
 
+  int t_final = N_PERIODS * MAJOR_PERIOD - 1;
 
   for(int period = 0; period < N_PERIODS; ++period) {
     for(int t = 0; t < MAJOR_PERIOD; ++t) {
@@ -74,7 +75,7 @@ void *schedule(void *arg) {
         if(t % jobRate[i] == 0){
           //Job i will be scheduled at this value of t
 
-          cout << "Job " << i << " scheduled. Completed: " << workers[i].get_completed_jobs() << endl;
+          cout << "Job " << i << " scheduled. Jobs Completed: " << workers[i].get_completed_jobs() << endl;
           if(workers[i].is_busy()) {
             missed_deadlines[i]++;
             cout << "Worker " << i << " still busy: Overrun condition" << endl;
@@ -87,12 +88,14 @@ void *schedule(void *arg) {
           workers[i].add_job();
         }
       }
+      if(period*MAJOR_PERIOD + t == t_final){
+        //Signalling the exit flag for all threads
+        for(int i = 0; i < N_JOBS; ++i) {
+          workers[i].set_exit();
+        }
+      }
       sleep(TIME_UNIT);
     }
-  }
-  //Signalling the exit flag for all threads
-  for(int i = 0; i < N_JOBS; ++i) {
-    workers[i].set_exit();
   }
 
   //Printing results
