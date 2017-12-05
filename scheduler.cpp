@@ -52,6 +52,17 @@ void create_thread(pthread_t* worker_threads, int i) {
 
 void *schedule(void *arg) {
   cout << "Scheduler called." << endl;
+
+  #ifdef __linux__
+  cout << "Scheduler affinity set to CPU " <<  CPU_ID << endl;
+  //Setting self Affinity
+  cpu_set_t mask;
+  CPU_ZERO(&mask);
+  CPU_SET(CPU_ID, &mask);
+  sched_setaffinity(0, sizeof(mask), &mask);
+  #endif
+
+
   int missed_deadlines[N_JOBS] = {};
 
   pthread_t worker_threads[N_JOBS];
