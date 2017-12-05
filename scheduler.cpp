@@ -21,25 +21,40 @@ void sleep(unsigned ms) {
   this_thread::sleep_for(chrono::milliseconds(ms));
 }
 
-//Setting Affinity
-#ifdef __linux__
-void set_pthread_attr_affinity(pthread_attr_t* tattr_ptr, int cpuid) {
+void create_thread(pthread_t* worker_threads, int i) {
+  //Setting priority
+  pthread_attr_t tattr;
+  int ret;
+  sched_param param;
+  ret = pthread_attr_init(&tattr);
+  ret = pthread_attr_getschedparam(&tattr, &param);
+  param.sched_priority += priorities[i];
+  ret = pthread_attr_setschedparam(&tattr, &param);
+
+  //Setting Affinity
+  #ifdef __linux__
   cpu_set_t cpuset;
   CPU_ZERO(&cpuset);
-  CPU_SET(cpuid, &cpuset);
-  pthread_attr_setaffinity_np(tattr_ptr, sizeof(cpu_set_t), &cpuset);
-  cout << "Affinity set to CPU " <<  cpuid << endl;
-}
-#else
-void set_pthread_attr_affinity(pthread_attr_t* tattr_ptr, int cpuid) { return;}
-#endif
+  CPU_SET(CPU_ID, &cpuset);
+  pthread_attr_setaffinity_np(&tattr, sizeof(cpu_set_t), &cpuset);
+  cout << "Affinity set to CPU " <<  CPU_ID << endl;
+  #endif
 
+  //Creating thread
+  int rc = pthread_create(&worker_threads[i], &tattr, worker_thread, &workers[i]);
+  if (rc) {
+    cout << "Unable to create worker " << i << endl;
+    exit(-1);
+  }
+
+
+}
 
 void *schedule(void *arg) {
   cout << "Scheduler called." << endl;
+  int missed_deadlines[N_JOBS] = {};
 
   pthread_t worker_threads[N_JOBS];
-  int missed_deadlines[N_JOBS] = {};
 
   for(int i = 0; i < N_JOBS; ++i) {
     //Initializing data and worker threads
@@ -54,8 +69,6 @@ void *schedule(void *arg) {
     ret = pthread_attr_getschedparam(&tattr, &param);
     param.sched_priority += priorities[i];
     ret = pthread_attr_setschedparam(&tattr, &param);
-
-    set_pthread_attr_affinity(&tattr, CPU_ID);
 
     //Creating thread
     int rc = pthread_create(&worker_threads[i], &tattr, worker_thread, &workers[i]);
