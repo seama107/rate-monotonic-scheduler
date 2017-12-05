@@ -38,10 +38,12 @@ Worker::Worker(int i) {
   thread_exit = false;
   work_per_job = jobRate[id];
   pthread_mutex_init(&run_lock, NULL);
+  pthread_mutex_init(&work_lock, NULL);
 }
 
 Worker::~Worker() {
   pthread_mutex_destroy(&run_lock);
+  pthread_mutex_destroy(&job_lock);
 }
 
 bool Worker::is_busy() {
