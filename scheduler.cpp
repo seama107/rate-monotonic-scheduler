@@ -5,7 +5,7 @@
 #include <sched.h>
 #include <pthread.h>
 
-#define TIME_UNIT 200
+#define TIME_UNIT 20
 #define N_PERIODS 10
 #define MAJOR_PERIOD 16
 #define N_JOBS 4
@@ -89,6 +89,7 @@ void *schedule(void *arg) {
         }
       }
       if(period*MAJOR_PERIOD + t == t_final){
+        cout << "Final time step." << endl;
         //Signalling the exit flag for all threads
         for(int i = 0; i < N_JOBS; ++i) {
           workers[i].set_exit();
