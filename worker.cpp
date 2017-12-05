@@ -6,10 +6,11 @@ using namespace std;
 void *worker_thread(void *arg) {
   Worker* worker = (Worker*) arg;
 
-  //Wait for lock
+  //Wait for inital lock
   pthread_mutex_lock(& (worker->run_lock) );
   while ( !(worker->thread_exit)) {
 
+    pthread_mutex_lock(& (worker->work_lock));
     while (worker->jobs_remaining) {
       //Work loop
       worker->busy = true;

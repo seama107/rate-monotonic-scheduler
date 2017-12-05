@@ -5,8 +5,8 @@
 #include <chrono>
 #include <sched.h>
 
-#define TIME_UNIT 200
-#define N_PERIODS 1
+#define TIME_UNIT 20
+#define N_PERIODS 10
 #define MAJOR_PERIOD 16
 #define N_JOBS 4
 #define CPU_ID 0
@@ -46,6 +46,7 @@ void *schedule(void *arg) {
     cout << "Creating worker " << i << endl;
     workers[i] = Worker(i);
     pthread_mutex_lock( &(workers[i].run_lock));
+    pthread_mutex_lock( &(workers[i].work_lock));
 
     //Setting priority
     pthread_attr_t tattr;
@@ -86,13 +87,13 @@ void *schedule(void *arg) {
 
           }
           cout << "Jobs completed: " << workers[i].get_completed_jobs() << endl;
-          cout << "Jobs remaining: "<< workers[i].get_jobs_remaining() << endl;
 
           workers[i].add_job();
           if(period == 0 && t == 0) {
             //First time, kick off the threads in their wait()
             pthread_mutex_unlock( &(workers[i].run_lock));
           }
+          pthread_mutex_unlock(& (workers[i].work_lock));
 
         }
       }

@@ -37,6 +37,7 @@ public:
   void set_exit();
 
   pthread_mutex_t run_lock;
+  pthread_mutex_t work_lock;
 
   int** doWork(int n);
   void delete_mat(int** mat);
