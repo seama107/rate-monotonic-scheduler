@@ -60,22 +60,7 @@ void *schedule(void *arg) {
     //Initializing data and worker threads
     cout << "Creating worker " << i << endl;
     workers[i] = Worker(i);
-
-    //Setting priority
-    pthread_attr_t tattr;
-    int ret;
-    sched_param param;
-    ret = pthread_attr_init(&tattr);
-    ret = pthread_attr_getschedparam(&tattr, &param);
-    param.sched_priority += priorities[i];
-    ret = pthread_attr_setschedparam(&tattr, &param);
-
-    //Creating thread
-    int rc = pthread_create(&worker_threads[i], &tattr, worker_thread, &workers[i]);
-    if (rc) {
-      cout << "Unable to create worker " << i << endl;
-      exit(-1);
-    }
+    create_thread(worker_threads, i);
   }
 
   int t_final = N_PERIODS * MAJOR_PERIOD - 1;
