@@ -5,10 +5,11 @@ using namespace std;
 
 void *worker_thread(void *arg) {
   Worker* worker = (Worker*) arg;
+  // cout << "This worker is on CPU " << sched_getcpu() << endl;
 
   while ( !(worker->thread_exit)) {
     sem_wait(worker->sem_id);
-    cout << "This program (main thread) is on CPU " << sched_getcpu() << endl;
+
     for(int i = 0; i < worker->work_per_job; ++i){
       int** mat = worker->doWork( rand() );
       worker->delete_mat(mat);

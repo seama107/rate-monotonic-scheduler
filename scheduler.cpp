@@ -29,6 +29,9 @@ void create_thread(pthread_t* worker_threads, int i) {
   ret = pthread_attr_init(&tattr);
   ret = pthread_attr_getschedparam(&tattr, &param);
   param.sched_priority += priorities[i];
+  cout << "Thread priority set to " << param.sched_priority << endl;
+  cout << "Min priority " << sched_get_priority_min(int policy) << endl;
+  cout << "Max priority " << sched_get_priority_max(int policy) << endl;
   ret = pthread_attr_setschedparam(&tattr, &param);
 
   //Setting Affinity
