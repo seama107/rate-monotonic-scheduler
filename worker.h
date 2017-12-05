@@ -7,7 +7,6 @@
 #include <pthread.h>
 #include <semaphore.h>
 #include <fcntl.h>
-#include <schedule.h>
 
 #define MAT_ROWS 10
 #define MAT_COLS 10
