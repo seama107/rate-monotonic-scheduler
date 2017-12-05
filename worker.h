@@ -2,8 +2,10 @@
 #define worker_h
 
 #include <stdlib.h>
+#include <string>
 #include <iostream>
 #include <pthread.h>
+#include <semaphore.h>
 
 #define MAT_ROWS 10
 #define MAT_COLS 10
@@ -15,11 +17,11 @@ void *worker_thread(void *arg);
 
 class Worker {
   int id;
-  int jobs_remaining;
   int jobs_completed;
   int work_per_job;
-  bool busy;
   bool thread_exit;
+  sem_t * sem_id;
+  const char* sem_name;
 
 
 public:
@@ -29,15 +31,12 @@ public:
 
   friend void *worker_thread(void *arg);
 
-  bool is_busy();
   int get_id();
   int get_completed_jobs();
-  int get_jobs_remaining();
+  int get_remaining_jobs();
+  bool is_busy();
   void add_job();
   void set_exit();
-
-  pthread_mutex_t run_lock;
-  pthread_mutex_t work_lock;
 
   int** doWork(int n);
   void delete_mat(int** mat);

@@ -1,11 +1,11 @@
 #include "worker.h"
 #include <iostream>
-#include <pthread.h>
 #include <thread>
 #include <chrono>
 #include <sched.h>
+#include <pthread.h>
 
-#define TIME_UNIT 20
+#define TIME_UNIT 200
 #define N_PERIODS 10
 #define MAJOR_PERIOD 16
 #define N_JOBS 4
@@ -45,8 +45,6 @@ void *schedule(void *arg) {
     //Initializing data and worker threads
     cout << "Creating worker " << i << endl;
     workers[i] = Worker(i);
-    pthread_mutex_lock( &(workers[i].run_lock));
-    pthread_mutex_lock( &(workers[i].work_lock));
 
     //Setting priority
     pthread_attr_t tattr;
@@ -74,27 +72,19 @@ void *schedule(void *arg) {
 
       for(int i = 0; i < N_JOBS; ++i) {
         if(t % jobRate[i] == 0){
-          if(workers[i].is_busy()) {
-            missed_deadlines[i]++;
-          }
+          //Job i will be scheduled at this value of t
 
-          cout << "Job " << i << " scheduled." << endl;
+          cout << "Job " << i << " scheduled. Completed: " << workers[i].get_completed_jobs() << endl;
           if(workers[i].is_busy()) {
             missed_deadlines[i]++;
             cout << "Worker " << i << " still busy: Overrun condition" << endl;
-            cout << "Worker " << i << " has " << workers[i].get_jobs_remaining() << " jobs remaining." << endl;
+            cout << "Worker " << i << " has " << workers[i].get_remaining_jobs() << " jobs remaining." << endl;
             cout << "Worker " << i << " deadlines missed: " << missed_deadlines[i] << endl;
+            //exit(-1);
 
           }
-          cout << "Jobs completed: " << workers[i].get_completed_jobs() << endl;
 
           workers[i].add_job();
-          if(period == 0 && t == 0) {
-            //First time, kick off the threads in their wait()
-            pthread_mutex_unlock( &(workers[i].run_lock));
-          }
-          pthread_mutex_unlock(& (workers[i].work_lock));
-
         }
       }
       sleep(TIME_UNIT);
@@ -103,11 +93,6 @@ void *schedule(void *arg) {
   //Signalling the exit flag for all threads
   for(int i = 0; i < N_JOBS; ++i) {
     workers[i].set_exit();
-  }
-
-  //wait() on threads to finish
-  for(int i = 0; i < N_JOBS; ++i) {
-    pthread_mutex_lock( &(workers[i].run_lock));
   }
 
   //Printing results

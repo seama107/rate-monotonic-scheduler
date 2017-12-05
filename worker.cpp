@@ -6,48 +6,31 @@ using namespace std;
 void *worker_thread(void *arg) {
   Worker* worker = (Worker*) arg;
 
-  //Wait for inital lock
-  pthread_mutex_lock(& (worker->run_lock) );
   while ( !(worker->thread_exit)) {
-
-    pthread_mutex_lock(& (worker->work_lock));
-    while (worker->jobs_remaining) {
-      //Work loop
-      worker->busy = true;
-      for(int i = 0; i < worker->work_per_job; ++i){
-        int** mat = worker->doWork( rand() );
-        worker->delete_mat(mat);
-      }
-      worker->jobs_remaining--;
-      worker->jobs_completed++;
-      worker->busy = false;
+    sem_wait(worker->sem_id);
+    for(int i = 0; i < worker->work_per_job; ++i){
+      int** mat = worker->doWork( rand() );
+      worker->delete_mat(mat);
     }
+    worker->jobs_completed++;
   }
 
-  //Return lock
-  pthread_mutex_unlock(& (worker->run_lock) );
 
   pthread_exit(NULL);
 }
 
 Worker::Worker(int i) {
   id = i;
-  jobs_remaining = 0;
   jobs_completed = 0;
-  busy = false;
   thread_exit = false;
   work_per_job = jobRate[id];
-  pthread_mutex_init(&run_lock, NULL);
-  pthread_mutex_init(&work_lock, NULL);
+  string sem_name_str = "worker_sem_" + to_string(id);
+  sem_name = sem_name_str.c_str();
+  sem_id = sem_open(sem_name, O_CREAT, 0600, 0); //Initializes to 0
 }
 
 Worker::~Worker() {
-  pthread_mutex_destroy(&run_lock);
-  pthread_mutex_destroy(&work_lock);
-}
-
-bool Worker::is_busy() {
-  return busy;
+  sem_unlink(sem_name);
 }
 
 int Worker::get_id() {
@@ -58,12 +41,18 @@ int Worker::get_completed_jobs() {
   return jobs_completed;
 }
 
-int Worker::get_jobs_remaining() {
-  return jobs_remaining;
+void Worker::add_job() {
+  sem_post(sem_id);
 }
 
-void Worker::add_job() {
-  jobs_remaining++;
+int Worker::get_remaining_jobs() {
+  int remaining;
+  sem_getvalue(sem_id, &remaining);
+  return remaining;
+}
+
+bool Worker::is_busy() {
+  return (get_remaining_jobs() != 0);
 }
 
 void Worker::set_exit() {
