@@ -43,7 +43,7 @@ Worker::Worker(int i) {
 
 Worker::~Worker() {
   pthread_mutex_destroy(&run_lock);
-  pthread_mutex_destroy(&job_lock);
+  pthread_mutex_destroy(&work_lock);
 }
 
 bool Worker::is_busy() {
