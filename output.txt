@@ -1,0 +1,901 @@
+99
+1
+Creating pthread 
+With priority 99
+Affinity set to CPU 0
+Scheduler called.
+Creating worker 0
+Creating pthread 
+With priority 98
+Affinity set to CPU 0
+Creating worker 1
+Creating pthread 
+With priority 97
+Affinity set to CPU 0
+Creating worker 2
+Creating pthread 
+With priority 96
+Affinity set to CPU 0
+Creating worker 3
+Creating pthread 
+With priority 95
+Affinity set to CPU 0
+Job 0 scheduled. Jobs Completed: 0
+Job 1 scheduled. Jobs Completed: 0
+Job 2 scheduled. Jobs Completed: 0
+Job 3 scheduled. Jobs Completed: 0
+Worker 3 beginning.
+Worker 3 finishing.
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 1
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 2
+Job 1 scheduled. Jobs Completed: 1
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 3
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 4
+Job 1 scheduled. Jobs Completed: 2
+Job 2 scheduled. Jobs Completed: 1
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 5
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 6
+Job 1 scheduled. Jobs Completed: 3
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 7
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 8
+Job 1 scheduled. Jobs Completed: 4
+Job 2 scheduled. Jobs Completed: 2
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 9
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 10
+Job 1 scheduled. Jobs Completed: 5
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 11
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 12
+Job 1 scheduled. Jobs Completed: 6
+Job 2 scheduled. Jobs Completed: 3
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 13
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 14
+Job 1 scheduled. Jobs Completed: 7
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 15
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 16
+Job 1 scheduled. Jobs Completed: 8
+Job 2 scheduled. Jobs Completed: 4
+Job 3 scheduled. Jobs Completed: 1
+Worker 3 beginning.
+Worker 3 finishing.
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 17
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 18
+Job 1 scheduled. Jobs Completed: 9
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 19
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 20
+Job 1 scheduled. Jobs Completed: 10
+Job 2 scheduled. Jobs Completed: 5
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 21
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 22
+Job 1 scheduled. Jobs Completed: 11
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 23
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 24
+Job 1 scheduled. Jobs Completed: 12
+Job 2 scheduled. Jobs Completed: 6
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 25
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 26
+Job 1 scheduled. Jobs Completed: 13
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 27
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 28
+Job 1 scheduled. Jobs Completed: 14
+Job 2 scheduled. Jobs Completed: 7
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 29
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 30
+Job 1 scheduled. Jobs Completed: 15
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 31
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 32
+Job 1 scheduled. Jobs Completed: 16
+Job 2 scheduled. Jobs Completed: 8
+Job 3 scheduled. Jobs Completed: 2
+Worker 3 beginning.
+Worker 3 finishing.
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 33
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 34
+Job 1 scheduled. Jobs Completed: 17
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 35
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 36
+Job 1 scheduled. Jobs Completed: 18
+Job 2 scheduled. Jobs Completed: 9
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 37
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 38
+Job 1 scheduled. Jobs Completed: 19
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 39
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 40
+Job 1 scheduled. Jobs Completed: 20
+Job 2 scheduled. Jobs Completed: 10
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 41
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 42
+Job 1 scheduled. Jobs Completed: 21
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 43
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 44
+Job 1 scheduled. Jobs Completed: 22
+Job 2 scheduled. Jobs Completed: 11
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 45
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 46
+Job 1 scheduled. Jobs Completed: 23
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 47
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 48
+Job 1 scheduled. Jobs Completed: 24
+Job 2 scheduled. Jobs Completed: 12
+Job 3 scheduled. Jobs Completed: 3
+Worker 3 beginning.
+Worker 3 finishing.
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 49
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 50
+Job 1 scheduled. Jobs Completed: 25
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 51
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 52
+Job 1 scheduled. Jobs Completed: 26
+Job 2 scheduled. Jobs Completed: 13
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 53
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 54
+Job 1 scheduled. Jobs Completed: 27
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 55
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 56
+Job 1 scheduled. Jobs Completed: 28
+Job 2 scheduled. Jobs Completed: 14
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 57
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 58
+Job 1 scheduled. Jobs Completed: 29
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 59
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 60
+Job 1 scheduled. Jobs Completed: 30
+Job 2 scheduled. Jobs Completed: 15
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 61
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 62
+Job 1 scheduled. Jobs Completed: 31
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 63
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 64
+Job 1 scheduled. Jobs Completed: 32
+Job 2 scheduled. Jobs Completed: 16
+Job 3 scheduled. Jobs Completed: 4
+Worker 3 beginning.
+Worker 3 finishing.
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 65
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 66
+Job 1 scheduled. Jobs Completed: 33
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 67
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 68
+Job 1 scheduled. Jobs Completed: 34
+Job 2 scheduled. Jobs Completed: 17
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 69
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 70
+Job 1 scheduled. Jobs Completed: 35
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 71
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 72
+Job 1 scheduled. Jobs Completed: 36
+Job 2 scheduled. Jobs Completed: 18
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 73
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 74
+Job 1 scheduled. Jobs Completed: 37
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 75
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 76
+Job 1 scheduled. Jobs Completed: 38
+Job 2 scheduled. Jobs Completed: 19
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 77
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 78
+Job 1 scheduled. Jobs Completed: 39
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 79
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 80
+Job 1 scheduled. Jobs Completed: 40
+Job 2 scheduled. Jobs Completed: 20
+Job 3 scheduled. Jobs Completed: 5
+Worker 3 beginning.
+Worker 3 finishing.
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 81
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 82
+Job 1 scheduled. Jobs Completed: 41
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 83
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 84
+Job 1 scheduled. Jobs Completed: 42
+Job 2 scheduled. Jobs Completed: 21
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 85
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 86
+Job 1 scheduled. Jobs Completed: 43
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 87
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 88
+Job 1 scheduled. Jobs Completed: 44
+Job 2 scheduled. Jobs Completed: 22
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 89
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 90
+Job 1 scheduled. Jobs Completed: 45
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 91
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 92
+Job 1 scheduled. Jobs Completed: 46
+Job 2 scheduled. Jobs Completed: 23
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 93
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 94
+Job 1 scheduled. Jobs Completed: 47
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 95
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 96
+Job 1 scheduled. Jobs Completed: 48
+Job 2 scheduled. Jobs Completed: 24
+Job 3 scheduled. Jobs Completed: 6
+Worker 3 beginning.
+Worker 3 finishing.
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 97
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 98
+Job 1 scheduled. Jobs Completed: 49
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 99
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 100
+Job 1 scheduled. Jobs Completed: 50
+Job 2 scheduled. Jobs Completed: 25
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 101
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 102
+Job 1 scheduled. Jobs Completed: 51
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 103
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 104
+Job 1 scheduled. Jobs Completed: 52
+Job 2 scheduled. Jobs Completed: 26
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 105
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 106
+Job 1 scheduled. Jobs Completed: 53
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 107
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 108
+Job 1 scheduled. Jobs Completed: 54
+Job 2 scheduled. Jobs Completed: 27
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 109
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 110
+Job 1 scheduled. Jobs Completed: 55
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 111
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 112
+Job 1 scheduled. Jobs Completed: 56
+Job 2 scheduled. Jobs Completed: 28
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Job 3 scheduled. Jobs Completed: 7
+Worker 3 beginning.
+Worker 3 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 113
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 114
+Job 1 scheduled. Jobs Completed: 57
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 115
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 116
+Job 1 scheduled. Jobs Completed: 58
+Job 2 scheduled. Jobs Completed: 29
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 117
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 118
+Job 1 scheduled. Jobs Completed: 59
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 119
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 120
+Job 1 scheduled. Jobs Completed: 60
+Job 2 scheduled. Jobs Completed: 30
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 121
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 122
+Job 1 scheduled. Jobs Completed: 61
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 123
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 124
+Job 1 scheduled. Jobs Completed: 62
+Job 2 scheduled. Jobs Completed: 31
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 125
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 126
+Job 1 scheduled. Jobs Completed: 63
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 127
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 128
+Job 1 scheduled. Jobs Completed: 64
+Job 2 scheduled. Jobs Completed: 32
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Job 3 scheduled. Jobs Completed: 8
+Worker 3 beginning.
+Worker 3 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 129
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 130
+Job 1 scheduled. Jobs Completed: 65
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 131
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 132
+Job 1 scheduled. Jobs Completed: 66
+Job 2 scheduled. Jobs Completed: 33
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 133
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 134
+Job 1 scheduled. Jobs Completed: 67
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 135
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 136
+Job 1 scheduled. Jobs Completed: 68
+Worker 1 beginning.
+Worker 1 finishing.
+Job 2 scheduled. Jobs Completed: 34
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 137
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 138
+Job 1 scheduled. Jobs Completed: 69
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 139
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 140
+Job 1 scheduled. Jobs Completed: 70
+Worker 1 beginning.
+Worker 1 finishing.
+Job 2 scheduled. Jobs Completed: 35
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 141
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 142
+Job 1 scheduled. Jobs Completed: 71
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 143
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 144
+Job 1 scheduled. Jobs Completed: 72
+Worker 1 beginning.
+Worker 1 finishing.
+Job 2 scheduled. Jobs Completed: 36
+Worker 2 beginning.
+Worker 2 finishing.
+Job 3 scheduled. Jobs Completed: 9
+Worker 3 beginning.
+Worker 3 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 145
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 146
+Job 1 scheduled. Jobs Completed: 73
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 147
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 148
+Job 1 scheduled. Jobs Completed: 74
+Worker 1 beginning.
+Worker 1 finishing.
+Job 2 scheduled. Jobs Completed: 37
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 149
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 150
+Job 1 scheduled. Jobs Completed: 75
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 151
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 152
+Job 1 scheduled. Jobs Completed: 76
+Worker 1 beginning.
+Worker 1 finishing.
+Job 2 scheduled. Jobs Completed: 38
+Worker 2 beginning.
+Worker 2 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 153
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 154
+Job 1 scheduled. Jobs Completed: 77
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 155
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 156
+Job 1 scheduled. Jobs Completed: 78
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 2 scheduled. Jobs Completed: 39
+Worker 2 beginning.
+Worker 2 finishing.
+Job 0 scheduled. Jobs Completed: 157
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 158
+Job 1 scheduled. Jobs Completed: 79
+Worker 1 beginning.
+Worker 1 finishing.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 scheduled. Jobs Completed: 159
+Final time step.
+Worker 0 beginning.
+Worker 0 finishing.
+Job 0 completed 160 times.
+Deadline missed 0 times.
+Job 1 completed 80 times.
+Deadline missed 0 times.
+Job 2 completed 40 times.
+Deadline missed 0 times.
+Job 3 completed 10 times.
+Deadline missed 0 times.
