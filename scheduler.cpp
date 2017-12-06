@@ -21,6 +21,13 @@ void sleep(unsigned ms) {
   this_thread::sleep_for(chrono::milliseconds(ms));
 }
 
+void print_thread_priority() {
+  struct sched_attr attr;
+  sched_getattr(0, &attr, sizeof(sched_attr), 0);
+  cout << "Priority: " << attr.sched_priority << endl;
+}
+
+
 void create_thread(pthread_t* worker_threads, int i) {
   //Setting priority
   pthread_attr_t tattr;
