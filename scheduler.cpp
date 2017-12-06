@@ -30,8 +30,6 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   pthread_attr_init(&tattr);
   pthread_attr_setschedpolicy(&tattr, SCHED_FIFO);
   pthread_attr_getschedparam(&tattr, &param);
-  cout << "Def. priority " << param.sched_priority << endl;
-  cout << "Setting to " << priority << endl;
   param.sched_priority = priority;
   int err = pthread_attr_setschedparam(&tattr, &param);
 
@@ -41,7 +39,7 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
     cout << "Permissions not sufficient to set priority" << endl;
 
   pthread_attr_getschedparam(&tattr, &param);
-  cout << "priority " << param.sched_priority << endl;
+  cout << "With priority " << param.sched_priority << endl;
 
   // Setting affinity
   #ifdef __linux__
@@ -53,6 +51,7 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   #endif
 
   pthread_create(&thread, &tattr, start_routine, arg);
+
 }
 
 void *schedule(void *arg) {
@@ -79,12 +78,12 @@ void *schedule(void *arg) {
       for(int i = 0; i < N_JOBS; ++i) {
         if(t % jobRate[i] == 0){
           //Job i will be scheduled at this value of t
-          // cout << "Job " << i << " scheduled. Jobs Completed: " << workers[i].get_completed_jobs() << endl;
+          cout << "Job " << i << " scheduled. Jobs Completed: " << workers[i].get_completed_jobs() << endl;
           if(workers[i].is_busy()) {
             missed_deadlines[i]++;
-            // cout << "Worker " << i << " still busy: Overrun condition" << endl;
-            // cout << "Worker " << i << " has " << workers[i].get_remaining_jobs() << " jobs remaining." << endl;
-            // cout << "Worker " << i << " deadlines missed: " << missed_deadlines[i] << endl;
+            cout << "Worker " << i << " still busy: Overrun condition" << endl;
+            cout << "Worker " << i << " has " << workers[i].get_remaining_jobs() << " jobs remaining." << endl;
+            cout << "Worker " << i << " deadlines missed: " << missed_deadlines[i] << endl;
           }
           workers[i].add_job();
         }
