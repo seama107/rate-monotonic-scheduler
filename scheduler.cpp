@@ -24,27 +24,24 @@ void sleep(unsigned ms) {
 
 void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg, int priority){
   // Setting priority
+  cout << "Creating pthread " << endl;
   pthread_attr_t tattr;
   sched_param param;
   pthread_attr_init(&tattr);
   pthread_attr_setschedpolicy(&tattr, SCHED_FIFO);
-  int pol;
-  pthread_attr_getschedpolicy(&tattr, &pol);
-  cout << "policy " << pol << endl;
-  cout << "FIFO = " << SCHED_FIFO << " RR = " << SCHED_RR << endl;
-
   pthread_attr_getschedparam(&tattr, &param);
   cout << "Def. priority " << param.sched_priority << endl;
   cout << "Setting to " << priority << endl;
   param.sched_priority = priority;
   int err = pthread_attr_setschedparam(&tattr, &param);
 
-  if(err == EINVAL) {
+  if(err == EINVAL)
     cout << "Invalid Priority: " << priority << endl;
-  }
   else if(err == EPERM)
     cout << "Permissions not sufficient to set priority" << endl;
 
+  pthread_attr_getschedparam(&tattr, &param);
+  cout << "priority " << param.sched_priority << endl;
 
   // Setting affinity
   #ifdef __linux__
@@ -56,9 +53,6 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   #endif
 
   pthread_create(&thread, &tattr, start_routine, arg);
-  //pthread_setschedparam(&thread, SCHED_FIFO, )
-
-
 }
 
 void *schedule(void *arg) {
