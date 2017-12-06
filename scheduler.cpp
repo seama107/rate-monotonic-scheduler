@@ -28,11 +28,13 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   sched_param param;
   pthread_attr_init(&tattr);
   pthread_attr_getschedparam(&tattr, &param);
+  cout << "Def. priority " << param.sched_priority << endl;
   param.sched_priority = priority;
   int err = pthread_attr_setschedparam(&tattr, &param);
 
-  if(err == EINVAL)
-    cout << "Invalid Priority." << endl;
+  if(err == EINVAL) {
+    cout << "Invalid Priority: " << priority << endl;
+  }
   else if(err == EPERM)
     cout << "Permissions not sufficient to set priority" << endl;
 
@@ -107,6 +109,8 @@ void *schedule(void *arg) {
 }
 
 int main(int argc, char const *argv[]) {
+  cout << MAX_PRIORITY << endl;
+  cout << MIN_PRIORITY << endl;
 
   pthread_t scheduler;
   create_thread(scheduler, schedule, NULL, MAX_PRIORITY);
