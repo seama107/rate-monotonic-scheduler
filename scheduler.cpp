@@ -27,7 +27,10 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   pthread_attr_t tattr;
   sched_param param;
   pthread_attr_init(&tattr);
+  pthread_attr_setschedpolicy(&tattr, SCHED_FIFO);
   pthread_attr_getschedparam(&tattr, &param);
+  //cout << "Def. policy " << param.sched_policy << endl;
+  cout << "FIFO = " << SCHED_FIFO << " RR = " << SCHED_RR << endl;
   cout << "Def. priority " << param.sched_priority << endl;
   param.sched_priority = priority;
   int err = pthread_attr_setschedparam(&tattr, &param);
@@ -49,9 +52,12 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   #endif
 
   // Setting Scheduler
-  pthread_attr_setschedpolicy(&tattr, SCHED_RR);
+  pthread_attr_setschedpolicy(&tattr, SCHED_FIFO);
 
   pthread_create(&thread, &tattr, start_routine, arg);
+  //pthread_setschedparam(&thread, SCHED_FIFO, )
+
+
 }
 
 void *schedule(void *arg) {
