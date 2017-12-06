@@ -39,12 +39,14 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   cout << "Affinity set to CPU " <<  CPU_ID << endl;
   #endif
 
+  // Setting Scheduler
+  pthread_attr_setschedpolicy(&tattr, SCHED_FIFO);
+
   pthread_create(&thread, &tattr, start_routine, arg);
 }
 
 void *schedule(void *arg) {
   cout << "Scheduler called." << endl;
-  sched_setscheduler(SCHED_FIFO);
 
   int missed_deadlines[N_JOBS] = {};
 
