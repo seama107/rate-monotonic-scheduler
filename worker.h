@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include <pthread.h>
+#include <sched.h>
 #include <semaphore.h>
 #include <fcntl.h>
 
