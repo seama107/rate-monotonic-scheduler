@@ -7,11 +7,6 @@ void *worker_thread(void *arg) {
   Worker* worker = (Worker*) arg;
   // cout << "This worker is on CPU " << sched_getcpu() << endl;
 
-  pthread_attr_t tattr;
-  sched_param param;
-  sched_getattr(0, &param, sizeof(sched_param), 0);
-  cout << "Thread " << worker->id << " on priority " <<  param.sched_priority << endl;
-
   while ( !(worker->thread_exit)) {
     sem_wait(worker->sem_id);
     cout << "Worker begin " << worker->id << endl;
