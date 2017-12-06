@@ -40,7 +40,7 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   #endif
 
   // Setting Scheduler
-  pthread_attr_setschedpolicy(&tattr, SCHED_FIFO);
+  pthread_attr_setschedpolicy(&tattr, SCHED_RR);
 
   pthread_create(&thread, &tattr, start_routine, arg);
 }
@@ -56,7 +56,7 @@ void *schedule(void *arg) {
     //Initializing data and worker threads
     cout << "Creating worker " << i << endl;
     workers[i] = Worker(i);
-    int priority = MAX_PRIORITY - 1;
+    int priority = N_JOBS - i; //RMS step
     create_thread(worker_threads[i], worker_thread, &workers[i], priority);
   }
 
