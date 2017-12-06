@@ -9,13 +9,13 @@ void *worker_thread(void *arg) {
 
   while ( !(worker->thread_exit)) {
     sem_wait(worker->sem_id);
-    cout << "Worker begin " << i << endl;
+    cout << "Worker begin " << worker->sem_id << endl;
     for(int i = 0; i < worker->work_per_job; ++i){
       int** mat = worker->doWork( rand() );
       worker->delete_mat(mat);
     }
     worker->jobs_completed++;
-    cout << "Worker end " << i << endl;
+    cout << "Worker end " << worker->sem_id << endl;
   }
 
 
