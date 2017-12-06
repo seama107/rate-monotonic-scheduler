@@ -14,35 +14,23 @@
 using namespace std;
 
 const int jobRate[N_JOBS] = {1, 2, 4, 16};
-const int priorities[N_JOBS] = {32, 8, 4, 2};
+const int MAX_PRIORITY = sched_get_priority_max(0);
 Worker workers[N_JOBS];
 
 void sleep(unsigned ms) {
   this_thread::sleep_for(chrono::milliseconds(ms));
 }
 
-void print_thread_priority() {
-  struct sched_attr attr;
-  sched_getattr(0, &attr, sizeof(sched_attr), 0);
-  cout << "Priority: " << attr.sched_priority << endl;
-}
-
-
-void create_thread(pthread_t* worker_threads, int i) {
-  //Setting priority
+void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg, int priority){
+  // Setting priority
   pthread_attr_t tattr;
-  int ret;
   sched_param param;
-  ret = pthread_attr_init(&tattr);
-  ret = pthread_attr_getschedparam(&tattr, &param);
-  param.sched_priority += priorities[i];
-  cout << "Thread priority set to " << param.sched_priority << endl;
-  cout << "Min priority " << sched_get_priority_min(0) << endl;
-  cout << "Max priority " << sched_get_priority_max(0) << endl;
-  cout << "Using Scheduler " << sched_getscheduler(0) << endl;
-  ret = pthread_attr_setschedparam(&tattr, &param);
+  pthread_attr_init(&tattr);
+  pthread_attr_getschedparam(&tattr, &param);
+  param.sched_priority = priority;
+  pthread_attr_setschedparam(&tattr, &param);
 
-  //Setting Affinity
+  // Setting affinity
   #ifdef __linux__
   cpu_set_t cpuset;
   CPU_ZERO(&cpuset);
@@ -51,28 +39,45 @@ void create_thread(pthread_t* worker_threads, int i) {
   cout << "Affinity set to CPU " <<  CPU_ID << endl;
   #endif
 
-  //Creating thread
-  int rc = pthread_create(&worker_threads[i], &tattr, worker_thread, &workers[i]);
-  if (rc) {
-    cout << "Unable to create worker " << i << endl;
-    exit(-1);
-  }
-
-
+  pthread_create(&thread, &tattr, start_routine, arg);
 }
+
+
+// void create_worker_thread(pthread_t* worker_threads, int i) {
+//   //Setting priority
+//   pthread_attr_t tattr;
+//   int ret;
+//   sched_param param;
+//   ret = pthread_attr_init(&tattr);
+//   ret = pthread_attr_getschedparam(&tattr, &param);
+//   param.sched_priority += priorities[i];
+//   cout << "Thread priority set to " << param.sched_priority << endl;
+//   cout << "Min priority " << sched_get_priority_min(0) << endl;
+//   cout << "Max priority " << sched_get_priority_max(0) << endl;
+//   cout << "Using Scheduler " << sched_getscheduler(0) << endl;
+//   ret = pthread_attr_setschedparam(&tattr, &param);
+//
+//   //Setting Affinity
+//   #ifdef __linux__
+//   cpu_set_t cpuset;
+//   CPU_ZERO(&cpuset);
+//   CPU_SET(CPU_ID, &cpuset);
+//   pthread_attr_setaffinity_np(&tattr, sizeof(cpu_set_t), &cpuset);
+//   cout << "Affinity set to CPU " <<  CPU_ID << endl;
+//   #endif
+//
+//   //Creating thread
+//   int rc = pthread_create(&worker_threads[i], &tattr, worker_thread, &workers[i]);
+//   if (rc) {
+//     cout << "Unable to create worker " << i << endl;
+//     exit(-1);
+//   }
+//
+//
+// }
 
 void *schedule(void *arg) {
   cout << "Scheduler called." << endl;
-
-  #ifdef __linux__
-  cout << "Scheduler affinity set to CPU " <<  CPU_ID << endl;
-  //Setting self Affinity
-  cpu_set_t mask;
-  CPU_ZERO(&mask);
-  CPU_SET(CPU_ID, &mask);
-  sched_setaffinity(0, sizeof(mask), &mask);
-  #endif
-
 
   int missed_deadlines[N_JOBS] = {};
 
@@ -82,7 +87,8 @@ void *schedule(void *arg) {
     //Initializing data and worker threads
     cout << "Creating worker " << i << endl;
     workers[i] = Worker(i);
-    create_thread(worker_threads, i);
+    int priority = MAX_PRIORITY - 1 - i;
+    create_thread(worker_threads[i], worker_thread, &workers[i], priority);
   }
 
   int t_final = N_PERIODS * MAJOR_PERIOD - 1;
@@ -131,11 +137,8 @@ void *schedule(void *arg) {
 int main(int argc, char const *argv[]) {
 
   pthread_t scheduler;
-  int rc = pthread_create(&scheduler, NULL, schedule, NULL);
-  if (rc) {
-    cout << "Unable to create scheduler" << endl;
-    exit(-1);
-  }
+  create_thread(scheduler, schedule, NULL, MAX_PRIORITY);
+
   pthread_exit(NULL);
   return 0;
 }
