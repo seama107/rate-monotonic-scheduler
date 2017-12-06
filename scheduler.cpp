@@ -32,6 +32,7 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   //cout << "Def. policy " << param.sched_policy << endl;
   cout << "FIFO = " << SCHED_FIFO << " RR = " << SCHED_RR << endl;
   cout << "Def. priority " << param.sched_priority << endl;
+  cout << "Setting to " << priority << endl;
   param.sched_priority = priority;
   int err = pthread_attr_setschedparam(&tattr, &param);
 
