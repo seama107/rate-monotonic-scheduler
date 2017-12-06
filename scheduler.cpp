@@ -29,7 +29,9 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   pthread_attr_init(&tattr);
   pthread_attr_getschedparam(&tattr, &param);
   param.sched_priority = priority;
-  pthread_attr_setschedparam(&tattr, &param);
+  if(pthread_attr_setschedparam(&tattr, &param)){
+    cout << "Priority write failure." << endl;
+  }
 
   // Setting affinity
   #ifdef __linux__
@@ -43,9 +45,7 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   // Setting Scheduler
   pthread_attr_setschedpolicy(&tattr, SCHED_RR);
 
-  if(pthread_create(&thread, &tattr, start_routine, arg)){
-    cout << "Error Creating thread." << endl;
-  }
+  pthread_create(&thread, &tattr, start_routine, arg);
 }
 
 void *schedule(void *arg) {
