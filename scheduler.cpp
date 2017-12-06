@@ -19,7 +19,7 @@ const int MIN_PRIORITY = sched_get_priority_min(SCHED_FIFO);
 Worker workers[N_JOBS];
 
 void sleep(unsigned ms) {
-  this_thread::sleep_for(chrono::nanoseconds(ms));
+  this_thread::sleep_for(chrono::milliseconds(ms));
 }
 
 void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg, int priority){

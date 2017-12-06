@@ -3,7 +3,17 @@
 A four-thread RMS implemented in C++.
 
 ## File listing
+* worker.cpp - defines doWork() and sem.wait()s
+* scheduler.cpp - contains bulk of code, as well as sem.signal()s
+* a.out - executable, compiled on CentOS
+* output.txt - program output
+* design.md - brief design description of the project
 
+
+## Compile with
+```
+g++ *.cpp -std=c++11 -pthread
+```
 
 ### Project Description
 Build a Rate Monotonic Scheduler with four threads
