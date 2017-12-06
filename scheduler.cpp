@@ -14,7 +14,8 @@
 using namespace std;
 
 const int jobRate[N_JOBS] = {1, 2, 4, 16};
-const int MAX_PRIORITY = sched_get_priority_max(0);
+const int MAX_PRIORITY = sched_get_priority_max(SCHED_FIFO);
+const int MIN_PRIORITY = sched_get_priority_min(SCHED_FIFO);
 Worker workers[N_JOBS];
 
 void sleep(unsigned ms) {
@@ -56,7 +57,7 @@ void *schedule(void *arg) {
     //Initializing data and worker threads
     cout << "Creating worker " << i << endl;
     workers[i] = Worker(i);
-    int priority = N_JOBS - i; //RMS step
+    int priority = MAX_PRIORITY - i - 1; //RMS step
     create_thread(worker_threads[i], worker_thread, &workers[i], priority);
   }
 
