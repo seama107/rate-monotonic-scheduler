@@ -44,6 +44,7 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
 
 void *schedule(void *arg) {
   cout << "Scheduler called." << endl;
+  sched_setscheduler(SCHED_FIFO);
 
   int missed_deadlines[N_JOBS] = {};
 
@@ -53,7 +54,7 @@ void *schedule(void *arg) {
     //Initializing data and worker threads
     cout << "Creating worker " << i << endl;
     workers[i] = Worker(i);
-    int priority = i;
+    int priority = MAX_PRIORITY - 1 - i;
     create_thread(worker_threads[i], worker_thread, &workers[i], priority);
   }
 
