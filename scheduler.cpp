@@ -18,7 +18,7 @@ const int MAX_PRIORITY = sched_get_priority_max(0);
 Worker workers[N_JOBS];
 
 void sleep(unsigned ms) {
-  this_thread::sleep_for(chrono::milliseconds(ms));
+  this_thread::sleep_for(chrono::nanoseconds(ms));
 }
 
 void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg, int priority){
@@ -42,40 +42,6 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   pthread_create(&thread, &tattr, start_routine, arg);
 }
 
-
-// void create_worker_thread(pthread_t* worker_threads, int i) {
-//   //Setting priority
-//   pthread_attr_t tattr;
-//   int ret;
-//   sched_param param;
-//   ret = pthread_attr_init(&tattr);
-//   ret = pthread_attr_getschedparam(&tattr, &param);
-//   param.sched_priority += priorities[i];
-//   cout << "Thread priority set to " << param.sched_priority << endl;
-//   cout << "Min priority " << sched_get_priority_min(0) << endl;
-//   cout << "Max priority " << sched_get_priority_max(0) << endl;
-//   cout << "Using Scheduler " << sched_getscheduler(0) << endl;
-//   ret = pthread_attr_setschedparam(&tattr, &param);
-//
-//   //Setting Affinity
-//   #ifdef __linux__
-//   cpu_set_t cpuset;
-//   CPU_ZERO(&cpuset);
-//   CPU_SET(CPU_ID, &cpuset);
-//   pthread_attr_setaffinity_np(&tattr, sizeof(cpu_set_t), &cpuset);
-//   cout << "Affinity set to CPU " <<  CPU_ID << endl;
-//   #endif
-//
-//   //Creating thread
-//   int rc = pthread_create(&worker_threads[i], &tattr, worker_thread, &workers[i]);
-//   if (rc) {
-//     cout << "Unable to create worker " << i << endl;
-//     exit(-1);
-//   }
-//
-//
-// }
-
 void *schedule(void *arg) {
   cout << "Scheduler called." << endl;
 
@@ -95,22 +61,18 @@ void *schedule(void *arg) {
 
   for(int period = 0; period < N_PERIODS; ++period) {
     for(int t = 0; t < MAJOR_PERIOD; ++t) {
-    cout << "Scheduling for t = " << period*MAJOR_PERIOD + t << endl;
+    // cout << "Scheduling for t = " << period*MAJOR_PERIOD + t << endl;
 
       for(int i = 0; i < N_JOBS; ++i) {
         if(t % jobRate[i] == 0){
           //Job i will be scheduled at this value of t
-
-          cout << "Job " << i << " scheduled. Jobs Completed: " << workers[i].get_completed_jobs() << endl;
+          // cout << "Job " << i << " scheduled. Jobs Completed: " << workers[i].get_completed_jobs() << endl;
           if(workers[i].is_busy()) {
             missed_deadlines[i]++;
-            cout << "Worker " << i << " still busy: Overrun condition" << endl;
-            cout << "Worker " << i << " has " << workers[i].get_remaining_jobs() << " jobs remaining." << endl;
-            cout << "Worker " << i << " deadlines missed: " << missed_deadlines[i] << endl;
-            //exit(-1);
-
+            // cout << "Worker " << i << " still busy: Overrun condition" << endl;
+            // cout << "Worker " << i << " has " << workers[i].get_remaining_jobs() << " jobs remaining." << endl;
+            // cout << "Worker " << i << " deadlines missed: " << missed_deadlines[i] << endl;
           }
-
           workers[i].add_job();
         }
       }
