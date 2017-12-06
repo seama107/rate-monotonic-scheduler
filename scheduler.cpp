@@ -43,7 +43,9 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   // Setting Scheduler
   pthread_attr_setschedpolicy(&tattr, SCHED_RR);
 
-  pthread_create(&thread, &tattr, start_routine, arg);
+  if(pthread_create(&thread, &tattr, start_routine, arg)){
+    cout << "Error Creating thread." << endl;
+  }
 }
 
 void *schedule(void *arg) {
