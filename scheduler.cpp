@@ -29,9 +29,13 @@ void create_thread(pthread_t thread, void *(*start_routine) (void *), void *arg,
   pthread_attr_init(&tattr);
   pthread_attr_getschedparam(&tattr, &param);
   param.sched_priority = priority;
-  if(pthread_attr_setschedparam(&tattr, &param)){
-    cout << "Priority write failure." << endl;
-  }
+  int err = pthread_attr_setschedparam(&tattr, &param);
+
+  if(err == EINVAL)
+    cout << "Invalid Priority." << endl;
+  else if(err == EPERM)
+    cout << "Permissions not sufficient to set priority" << endl;
+
 
   // Setting affinity
   #ifdef __linux__
