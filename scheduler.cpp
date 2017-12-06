@@ -14,7 +14,7 @@
 using namespace std;
 
 const int jobRate[N_JOBS] = {1, 2, 4, 16};
-const int priorities[N_JOBS] = {1, 2, 3, 4};
+const int priorities[N_JOBS] = {32, 8, 4, 2};
 Worker workers[N_JOBS];
 
 void sleep(unsigned ms) {
@@ -30,8 +30,9 @@ void create_thread(pthread_t* worker_threads, int i) {
   ret = pthread_attr_getschedparam(&tattr, &param);
   param.sched_priority += priorities[i];
   cout << "Thread priority set to " << param.sched_priority << endl;
-  cout << "Min priority " << sched_get_priority_min(int policy) << endl;
-  cout << "Max priority " << sched_get_priority_max(int policy) << endl;
+  cout << "Min priority " << sched_get_priority_min(0) << endl;
+  cout << "Max priority " << sched_get_priority_max(0) << endl;
+  cout << "Using Scheduler " << sched_getscheduler(0) << endl;
   ret = pthread_attr_setschedparam(&tattr, &param);
 
   //Setting Affinity
