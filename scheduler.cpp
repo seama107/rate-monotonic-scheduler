@@ -56,7 +56,7 @@ void *schedule(void *arg) {
     //Initializing data and worker threads
     cout << "Creating worker " << i << endl;
     workers[i] = Worker(i);
-    int priority = MAX_PRIORITY - 1 - i;
+    int priority = MAX_PRIORITY - 10 - i*10;
     create_thread(worker_threads[i], worker_thread, &workers[i], priority);
   }
 
